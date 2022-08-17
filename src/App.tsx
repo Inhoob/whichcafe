@@ -1,12 +1,10 @@
 import React from "react";
-import Map from "./components/Map";
 import "./App.css";
-import Searchbar from "./components/Searchbar";
+import LandingPage from './pages/LandingPage';
 function App() {
   return (
     <>
-      <Map></Map>
-      <Searchbar></Searchbar>
+      <LandingPage></LandingPage>
     </>
   );
 }
