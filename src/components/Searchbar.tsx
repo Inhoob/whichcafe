@@ -36,23 +36,27 @@ const Button = styled.button`
     background: #abd5bd;
   }
 `;
-function Searchbar() {
-  const [value, setValue] = useState(" ");
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-    console.log(e.target.value);
-  };
-  const onSubmit = (value: any) => {
-    if (!value.replace(/^\s+|\s+$/g, "")) {
-      alert("키워드를 입력해주세요!");
-      return false;
-    }
-  };
+type SearchbarProps = {
+  keywordChange: (e: any) => void;
+  submitKeyword: (e: any) => void;
+};
+// function onClick=()=>{
+
+// }
+function Searchbar(
+  { keywordChange }: SearchbarProps,
+  { submitKeyword }: SearchbarProps
+) {
   // 장소 검색 객체를 생성합니다
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Input placeholder="원하는 장소 입력" onChange={onChange}></Input>
+    <Form onSubmit={submitKeyword}>
+      <Input
+        type="text"
+        placeholder="원하는 장소 입력"
+        onChange={keywordChange}
+      ></Input>
+
       <Button type="submit"></Button>
     </Form>
   );
